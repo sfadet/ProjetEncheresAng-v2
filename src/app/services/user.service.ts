@@ -59,4 +59,23 @@ export class UserService {
 
     return isGood;
   }
+
+  public addUser(userForm : {pseudo: string, nom: string, prenom: string, email: string, telephone: string, rue: string, codePostal: string, ville: string, motDePasse: string}): void {
+    let newUser = new Utilisateur(
+      0,
+                userForm.pseudo,
+                userForm.nom,
+                userForm.prenom,
+                userForm.email,
+                userForm.telephone,
+                userForm.rue,
+                userForm.codePostal,
+                userForm.ville,
+                userForm.motDePasse,
+                5,
+                false
+      )
+    console.log(newUser)
+
+  }
 }
