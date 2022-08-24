@@ -19,10 +19,8 @@
     <div>
       <label for="categorie_article">Catégorie : </label>
       <select class="my-2" name="categorie_article" id="categorie_article">
-        <option value="">--Choisir une catégorie--</option>
-        <option value="informatique">Informatique</option>
-        <option value="bricolage">Bricolage</option>
-        <option value="decoration">Decoration</option>
+        <option value="0">-- Toutes --</option>
+        <option *ngFor="let c of categories$ | async" [value]="c.noCategorie">{{c.libelle}}</option>
       </select>
       <button class="btn btn-success btn-lg btn-block m-1">Rechercher</button>
     </div>

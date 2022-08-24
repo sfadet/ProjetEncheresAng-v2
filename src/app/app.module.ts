@@ -15,6 +15,8 @@ import { ViewProfilComponent } from './components/user/view-profil/view-profil.c
 import { CarteArticleComponent } from './components/article/carte-article/carte-article.component';
 import { HomeArticlesComponent } from './components/article/home-articles/home-articles.component';
 import { DetailArticleComponent } from './components/article/detail-article/detail-article.component';
+import { GestionCategoriesComponent } from './components/admin/gestion-categories/gestion-categories.component';
+import { MiseEnVenteArticleComponent } from './components/article/mise-en-vente-article/mise-en-vente-article.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { DetailArticleComponent } from './components/article/detail-article/deta
     ViewProfilComponent,
     CarteArticleComponent,
     HomeArticlesComponent,
-    DetailArticleComponent
+    DetailArticleComponent,
+    GestionCategoriesComponent,
+    MiseEnVenteArticleComponent
   ],
   imports: [
     BrowserModule,

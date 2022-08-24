@@ -3,3 +3,10 @@ body {background-color: #e1cbb0}
 h3 {color: darkred;}
 hr {color: #3a2811;}
 .red {color: red}
+
+h3 {padding-bottom: 15px;}
+.listHeader {border-bottom: solid 1px black; font-weight: bold; padding-bottom: 3px;}
+.listElmt {border-bottom: solid 1px #935802;padding-bottom: 3px;}
+a.delete {color: #840606; margin: 0 3px;}
+a.edit {color: #0b2183; margin: 0 3px;}
+.editButtons {margin-right: 50px;}

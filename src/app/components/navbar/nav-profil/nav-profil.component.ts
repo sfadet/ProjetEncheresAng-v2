@@ -9,6 +9,7 @@ import {UserService} from "../../../services/user.service";
 export class NavProfilComponent implements OnInit {
 
   public isLogged: boolean = false;
+  public isAdmin: boolean = true;
 
   constructor(private loginSvc: UserService) { }
 
@@ -24,6 +25,7 @@ export class NavProfilComponent implements OnInit {
 
   public disconnect(){
     this.loginSvc.disconnect();
+    this.isAdmin = false;
   }
 
 }

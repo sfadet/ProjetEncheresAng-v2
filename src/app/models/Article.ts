@@ -1,6 +1,5 @@
 import {Retrait} from "./Retrait";
 import {Categorie} from "./Categorie";
-import {DateTime} from "./DateTime";
 import {Enchere} from "./Enchere";
 
 export class Article {

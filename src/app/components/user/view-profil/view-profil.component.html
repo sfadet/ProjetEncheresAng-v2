@@ -33,6 +33,9 @@
             <app-carte-article *ngFor="let v of userDetails.ventes" [article]="v" class="col-6"></app-carte-article>
           </div>
           <p *ngIf="!userDetails.ventes">Vous n'avez pas de ventes.</p>
+          <div class="text-center">
+            <button [routerLink]="'/mise-en-vente'" class="btn btn-primary">Mettre en vente</button>
+          </div>
         </div>
       </div>
       <div>

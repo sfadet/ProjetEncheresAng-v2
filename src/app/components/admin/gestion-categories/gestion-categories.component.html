@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>Gestion des catégories</h1>
+  <hr>
+  <div *ngIf="!showEdit">
+    <h3>Ajouter une catégorie</h3>
+    <form [formGroup]="newCategorie">
+      <div class="row mb-3">
+        <label for="libelle" class="col-sm-2 col-form-label">Libellé</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control form-control-sm" id="libelle" formControlName="libelle">
+        </div>
+      </div>
+      <button type="submit" (click)="onSubmitForm()" [disabled]="newCategorie.invalid" class="btn btn-primary btn-sm">Ajouter</button>
+    </form>
+  </div>
+  <div *ngIf="showEdit">
+    <h3>Modifier une catégorie</h3>
+    <form [formGroup]="editCategorie">
+      <div class="row mb-3">
+        <label for="libelleE" class="col-sm-2 col-form-label">Libellé</label>
+        <div class="col-sm-3">
+          <input type="hidden" id="idE" formControlName="noCategorie">
+          <input type="text" class="form-control form-control-sm" id="libelleE" formControlName="libelle">
+        </div>
+      </div>
+      <button type="submit" (click)="onSubmitFormEdit()" [disabled]="editCategorie.invalid" class="btn btn-primary btn-sm">Modifier</button>
+      <button type="submit" (click)="onCancelEdit()" class="btn btn-warning btn-sm editButtons">Annuler</button>
+    </form>
+  </div>
+
+  <hr>
+  <div>
+    <h3>Liste des catégories</h3>
+    <p class="listHeader row"><span class="col-1">#id</span><span class="col-11">Libellé</span></p>
+    <p class="listElmt row" *ngFor="let c of categories$ | async">
+      <span class="col-1">{{c.noCategorie}}</span>
+      <span class="col-9">{{c.libelle}}</span>
+      <span class="col-2 text-end">
+        <a (click)="onEditCategorie(c.noCategorie)" class="edit"><i class="bi bi-pencil-square"></i></a>
+        <a (click)="onDeleteCategorie(c.noCategorie)" class="delete"><i class="bi bi-trash"></i></a>
+      </span>
+    </p>
+  </div>
+
+</div>

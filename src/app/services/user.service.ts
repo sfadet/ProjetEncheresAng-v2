@@ -1,7 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Utilisateur} from "../models/Utilisateur";
-import {map, Observable, tap} from "rxjs";
 import {Router} from "@angular/router";
 
 @Injectable({
@@ -36,6 +35,10 @@ export class UserService {
    */
   public getLoggedUser(): Utilisateur {
     return this.user;
+  }
+
+  public getLoggedUserId(): number {
+    return this.user.noUtilisateur;
   }
 
   /**
@@ -77,7 +80,7 @@ export class UserService {
     return false;
   }
 
-  public editUser(userForm: {}) {
+  public editUser() {
     return false;
   }
 
