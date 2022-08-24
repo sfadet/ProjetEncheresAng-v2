@@ -1,0 +1,105 @@
+<div class="container">
+  <h2>Détail vente</h2>
+  <hr>
+  <div *ngIf="article$ | async as article">
+    <div class="row shadow mb-5 bg-body rounded">
+      <div class="col-3">
+        <img class="img-fluid" [src]="img" (error)="setDefaultPic()" [alt]="article.nomArticle">
+      </div>
+      <div class="col-9">
+        <h1>{{article.nomArticle}}</h1>
+        <hr>
+        <div class="row">
+          <div class="col-3">
+            <p>Description</p>
+          </div>
+          <div class="col-9">
+            <p>{{article.description}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <p>Catégorie</p>
+          </div>
+          <div class="col-9">
+            <p>{{article.categorie.libelle}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <p>Meilleure offre</p>
+          </div>
+          <div class="col-9">
+            <p *ngIf="article.encheres">{{article.encheres[0].montantEnchere}} pts, par {{article.encheres[0].noUtilisateur}} le <!--{{formatDate(article.encheres[0].dateEnchere)}}--></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <p>Mise à prix</p>
+          </div>
+          <div class="col-9">
+            <p>{{article.miseAPrix}} points</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <p>Début de l'enchère</p>
+          </div>
+          <div class="col-9">
+            <p>{{formatDate(article.dateDebutEncheres)}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <p>Fin de l'enchère</p>
+          </div>
+          <div class="col-9">
+            <p>{{formatDate(article.dateFinEncheres)}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <p>Retrait</p>
+          </div>
+          <div class="col-9">
+            <p>{{article.lieuRetrait.rue}}</p>
+            <p>{{article.lieuRetrait.codePostal}} {{article.lieuRetrait.ville}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <p>Vendeur</p>
+          </div>
+          <div class="col-9">
+            <p>{{article.pseudoVendeur}}</p>
+          </div>
+        </div>
+  <!--      <div class="row shadow mb-5 rounded enchere" *ngIf="isLogged">-->
+  <!--        <div class="col-3">-->
+  <!--          <p>Ma proposition</p>-->
+  <!--        </div>-->
+  <!--        <div class="col-2">-->
+  <!--          <input  type="number"class="form-control" id="montantEnchere" name="montantEnchere" [ngModel]="montantEnchere" [min]="a.encheres[0].montantEnchere+1">-->
+  <!--        </div>-->
+  <!--        <div class="col-3">-->
+  <!--&lt;!&ndash;          <p>(crédits disponibles : {{getCredit()}})</p>&ndash;&gt;-->
+  <!--        </div>-->
+  <!--        <div class="col-4">-->
+  <!--          <button type="button" class="btn btn-success btn-block" routerLink="/login">Enchérir</button>-->
+  <!--        </div>-->
+  <!--      </div>-->
+        <div class="row shadow mb-5 rounded enchere" *ngIf="!isLogged">
+          <h5 class="text-center">Proposer une enchère ?</h5>
+          <hr>
+          <div class="col-5 row">
+            <button type="button" class="btn btn-success btn-lg btn-block" routerLink="/login">Se connecter</button>
+          </div>
+          <div class="col-2"></div>
+          <div class="col-5 row">
+            <button type="button" class="btn btn-primary btn-lg btn-block" routerLink="/creerCompte">Créer un compte</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

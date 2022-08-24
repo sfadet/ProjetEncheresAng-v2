@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ArticleService} from "../../services/article.service";
+import {Observable} from "rxjs";
+import {Article} from "../../models/Article";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  articles$!: Observable<Article[]>
 
-  ngOnInit(): void {
-  }
+  constructor(private as: ArticleService) { }
+
+  ngOnInit(): void {}
 
 }

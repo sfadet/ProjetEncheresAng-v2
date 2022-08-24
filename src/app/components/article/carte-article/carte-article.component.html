@@ -1,0 +1,28 @@
+<div class="shadow mb-5 bg-body rounded carteArticle">
+  <ng-container *ngIf="article">
+    <a routerLink="/article/{{url}}">
+      <div class="row">
+        <div class="col-4">
+          <img class="img-fluid" [src]="img" (error)="setDefaultPic()" [alt]="article.nomArticle">
+        </div>
+        <div class="col-8">
+          <h4>{{article.nomArticle}}</h4>
+          <div class="row">
+            <div class="col-6">
+              <p class="categorie">{{article.categorie.libelle}}</p>
+            </div>
+            <div class="col-6">
+              <p class="prix">{{article.miseAPrix}} crédits</p>
+            </div>
+          </div>
+          <p id="finEnchere">
+            <span class="label">Fin de l'enchère</span>
+            <span class="info">{{article.dateFinEncheres}}</span>
+            <br>
+            <span class="label"></span><span class="info tempsRestant">{{tempsRestant}}</span>
+          </p>
+        </div>
+      </div>
+    </a>
+  </ng-container>
+</div>

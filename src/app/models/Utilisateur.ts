@@ -1,3 +1,5 @@
+import {Article} from "./Article";
+
 export class Utilisateur {
   private _noUtilisateur: number;
   private _pseudo: string;
@@ -11,9 +13,9 @@ export class Utilisateur {
   private _motDePasse: string;
   private _credit: number;
   private _administrateur: boolean;
-  private _achats: any[];
+  private _achats: Article[];
   private _encheres: any[];
-  private _ventes: any[];
+  private _ventes: Article[];
 
   constructor(noUtilisateur: number, pseudo: string, nom: string, prenom: string, email: string, telephone: string, rue: string, codePostal: string, ville: string, motDePasse: string, credit: number, administrateur: boolean) {
     this._noUtilisateur = noUtilisateur;

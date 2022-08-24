@@ -25,9 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitLogin(): void {
-    if(this.us.getUserByLoginAndPassword(this.loginForm.value.login, this.loginForm.value.password)){
-      this.router.navigate(['/']);
-    } else {
+    if(!this.us.getUserByLoginAndPassword(this.loginForm.value.login, this.loginForm.value.password)){
       this.errorMsg = "Impossible de se connecter. Login ou mot de passe invalide.";
     }
   }

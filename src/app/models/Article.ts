@@ -7,8 +7,8 @@ export class Article {
   private _noArticle: number;
   private _nomArticle: string;
   private _description: string;
-  private _dateDebutEncheres: DateTime;
-  private _dateFinEncheres: DateTime;
+  private _dateDebutEncheres: Date;
+  private _dateFinEncheres: Date;
   private _miseAPrix: number;
   private _prixVente: number;
   private _lieuRetrait: Retrait;
@@ -17,7 +17,7 @@ export class Article {
   private _pseudoVendeur: string;
   private _encheres: Enchere[] = [];
 
-  constructor(noArticle: number, nomArticle: string, description: string, dateDebutEncheres: DateTime, dateFinEncheres: DateTime, miseAPrix: number, prixVente: number, lieuRetrait: Retrait, categorie: Categorie, noUtilisateurVendeur: number, pseudoVendeur: string, encheres: Enchere[]) {
+  constructor(noArticle: number, nomArticle: string, description: string, dateDebutEncheres: Date, dateFinEncheres: Date, miseAPrix: number, prixVente: number, lieuRetrait: Retrait, categorie: Categorie, noUtilisateurVendeur: number, pseudoVendeur: string, encheres: Enchere[]) {
     this._noArticle = noArticle;
     this._nomArticle = nomArticle;
     this._description = description;
@@ -104,19 +104,19 @@ export class Article {
     this._lieuRetrait = value;
   }
 
-  get dateDebutEncheres(): DateTime {
+  get dateDebutEncheres(): Date {
     return this._dateDebutEncheres;
   }
 
-  set dateDebutEncheres(value: DateTime) {
+  set dateDebutEncheres(value: Date) {
     this._dateDebutEncheres = value;
   }
 
-  get dateFinEncheres(): DateTime {
+  get dateFinEncheres(): Date {
     return this._dateFinEncheres;
   }
 
-  set dateFinEncheres(value: DateTime) {
+  set dateFinEncheres(value: Date) {
     this._dateFinEncheres = value;
   }
 

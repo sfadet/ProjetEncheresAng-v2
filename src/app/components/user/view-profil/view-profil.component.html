@@ -1,0 +1,57 @@
+<div class="container">
+  <h1>Votre fiche profil</h1>
+  <hr>
+  <div class="row">
+    <div class="col-3">
+      <div class="shadow p-3 mb-5 bg-body rounded">
+        <div class="text-center">
+          <p class="pseudo">{{userDetails.pseudo}}</p>
+          <img class="img-fluid" src="assets/images/user/profil.png" alt="profil image">
+          <p class="gras">{{userDetails.prenom}} {{userDetails.nom}}</p>
+          <p>{{userDetails.rue}}</p>
+          <p>{{userDetails.codePostal}} {{userDetails.ville}}</p>
+        </div>
+        <hr>
+        <div>
+          <p>email : {{userDetails.email}}</p>
+          <p>tél. : {{userDetails.telephone}}</p><br>
+          <p>Crédits : <span class="gras">{{userDetails.credit}}</span></p>
+        </div>
+        <div class="text-center">
+          <button [routerLink]="'/edit-profil'" class="btn btn-primary">Modifier</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-9">
+      <div>
+        <div class="shadow p-3 mb-5 bg-body rounded">
+          <h3>Vos ventes</h3>
+          <hr>
+          <div *ngIf="userDetails.ventes" class="row">
+            <app-carte-article *ngFor="let v of userDetails.ventes" [article]="v" class="col-6"></app-carte-article>
+          </div>
+          <p *ngIf="!userDetails.ventes">Vous n'avez pas de ventes.</p>
+        </div>
+      </div>
+      <div>
+        <div class="shadow p-3 mb-5 bg-body rounded">
+          <h3>Vos achats</h3>
+          <hr>
+          <div *ngIf="userDetails.achats" class="row">
+            <app-carte-article *ngFor="let a of userDetails.achats" [article]="a" class="col-6"></app-carte-article>
+          </div>
+          <p *ngIf="!userDetails.ventes">Vous n'avez pas de d'achats.</p>
+        </div>
+      </div>
+      <div>
+        <div class="shadow p-3 mb-5 bg-body rounded">
+          <h3>Vos enchères en cours</h3>
+          <hr>
+          <p class="red">// TODO : à compléter</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

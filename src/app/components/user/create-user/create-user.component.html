@@ -1,6 +1,7 @@
 <div class="container addUser">
   <h1>Créer un compte</h1>
   <hr>
+  <p class="red" *ngIf="errorMsg">{{errorMsg}}</p>
   <form class="row" [formGroup]="newUserForm">
     <div class="col-5">
       <div class="row mb-3">

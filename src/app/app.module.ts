@@ -11,6 +11,10 @@ import { UpdateUserComponent } from './components/user/update-user/update-user.c
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import { NavProfilComponent } from './components/navbar/nav-profil/nav-profil.component';
+import { ViewProfilComponent } from './components/user/view-profil/view-profil.component';
+import { CarteArticleComponent } from './components/article/carte-article/carte-article.component';
+import { HomeArticlesComponent } from './components/article/home-articles/home-articles.component';
+import { DetailArticleComponent } from './components/article/detail-article/detail-article.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { NavProfilComponent } from './components/navbar/nav-profil/nav-profil.co
     LoginComponent,
     CreateUserComponent,
     UpdateUserComponent,
-    NavProfilComponent
+    NavProfilComponent,
+    ViewProfilComponent,
+    CarteArticleComponent,
+    HomeArticlesComponent,
+    DetailArticleComponent
   ],
   imports: [
     BrowserModule,

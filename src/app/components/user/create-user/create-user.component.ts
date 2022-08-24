@@ -10,6 +10,7 @@ import {UserService} from "../../../services/user.service";
 export class CreateUserComponent implements OnInit {
 
   public newUserForm!: FormGroup;
+  public errorMsg: string = "";
 
   constructor(private fb: FormBuilder, private us: UserService) { }
 
@@ -24,12 +25,16 @@ export class CreateUserComponent implements OnInit {
       codePostal: [null, Validators.required],
       ville: [null, Validators.required],
       motDePasse: [null, Validators.required],
-      motDePasseConfirm:  [null, Validators.required]
+      motDePasseConfirm: [null, Validators.required],
+      credit: 500,
+      administrateur: false
     }, {validator: this.matchPassword})
   }
 
   public onSubmitForm(): void {
-    this.us.addUser(this.newUserForm.value);
+    if (!this.us.addUser(this.newUserForm.value)){
+      this.errorMsg = "Le compte n'a pas été créé.";
+    }
   }
 
   /**

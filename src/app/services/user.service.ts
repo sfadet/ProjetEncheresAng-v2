@@ -1,19 +1,19 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Utilisateur} from "../models/Utilisateur";
+import {map, Observable, tap} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  public user: Utilisateur = new Utilisateur(0,"admin","bob","leponge","b.Leponge@eni.fr","0102030405","rue de la mer","44000","Nantes","admin", 0, false);
+  public user!: Utilisateur;
   public isLogged: EventEmitter<boolean>  = new EventEmitter<boolean>();
   public isLogged2: boolean = false;
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   /**
    * Permet de savoir qu'un utilisateur est connecté
@@ -51,31 +51,37 @@ export class UserService {
    * @param password
    */
   public getUserByLoginAndPassword(login: string, password: string): boolean {
-    let isGood: boolean = false;
-    if (this.user.pseudo == login && this.user.motDePasse == password){
-      isGood = true;
-      this.connect();
-    }
 
-    return isGood;
+    let body = { pseudo: login, motDePasse: password};
+
+    this.http.post<Utilisateur>('http://localhost:8080/utilisateur/login', body).subscribe(
+      data => {
+        if (data) {
+          this.user = data;
+          this.connect();
+          this.router.navigate(['/']);
+        }
+      }
+    );
+    return false;
   }
 
-  public addUser(userForm : {pseudo: string, nom: string, prenom: string, email: string, telephone: string, rue: string, codePostal: string, ville: string, motDePasse: string}): void {
-    let newUser = new Utilisateur(
-      0,
-                userForm.pseudo,
-                userForm.nom,
-                userForm.prenom,
-                userForm.email,
-                userForm.telephone,
-                userForm.rue,
-                userForm.codePostal,
-                userForm.ville,
-                userForm.motDePasse,
-                5,
-                false
-      )
-    console.log(newUser)
+  public addUser(userForm : {pseudo: string, nom: string, prenom: string, email: string, telephone: string, rue: string, codePostal: string, ville: string, motDePasse: string, credit: number, administrateur: boolean}): boolean {
+    this.http.post<Utilisateur>('http://localhost:8080/utilisateur', userForm).subscribe(
+      data => {
+        if(data){
+          this.router.navigate(['/login']);
+        }
+      }
+    );
+    return false;
+  }
 
+  public editUser(userForm: {}) {
+    return false;
+  }
+
+  public getIsLogged(): boolean {
+    return this.isLogged2;
   }
 }
