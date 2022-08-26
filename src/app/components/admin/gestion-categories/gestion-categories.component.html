@@ -32,14 +32,18 @@
   <div>
     <h3>Liste des catégories</h3>
     <p class="listHeader row"><span class="col-1">#id</span><span class="col-11">Libellé</span></p>
-    <p class="listElmt row" *ngFor="let c of categories$ | async">
-      <span class="col-1">{{c.noCategorie}}</span>
-      <span class="col-9">{{c.libelle}}</span>
-      <span class="col-2 text-end">
+    <div *ngIf="categories$">
+      <p class="listElmt row" *ngFor="let c of categories$ | async">
+        <span class="col-1">{{c.noCategorie}}</span>
+        <span class="col-9">{{c.libelle}}</span>
+        <span class="col-2 text-end">
         <a (click)="onEditCategorie(c.noCategorie)" class="edit"><i class="bi bi-pencil-square"></i></a>
         <a (click)="onDeleteCategorie(c.noCategorie)" class="delete"><i class="bi bi-trash"></i></a>
       </span>
-    </p>
+      </p>
+    </div>
+    <div *ngIf="!categories$">
+      <p>Aucunes catégorie n'est créée</p>
+    </div>
   </div>
-
 </div>

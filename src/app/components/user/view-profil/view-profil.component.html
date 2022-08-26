@@ -29,13 +29,13 @@
         <div class="shadow p-3 mb-5 bg-body rounded">
           <h3>Vos ventes</h3>
           <hr>
-          <div *ngIf="userDetails.ventes" class="row">
-            <app-carte-article *ngFor="let v of userDetails.ventes" [article]="v" class="col-6"></app-carte-article>
-          </div>
-          <p *ngIf="!userDetails.ventes">Vous n'avez pas de ventes.</p>
-          <div class="text-center">
-            <button [routerLink]="'/mise-en-vente'" class="btn btn-primary">Mettre en vente</button>
-          </div>
+<!--          <div *ngIf="userDetails.ventes" class="row">-->
+<!--            <app-carte-article *ngFor="let v of userDetails.ventes" [article]="v" class="col-6"></app-carte-article>-->
+<!--          </div>-->
+<!--          <p *ngIf="!userDetails.ventes">Vous n'avez pas de ventes.</p>-->
+<!--          <div class="text-center">-->
+<!--            <button [routerLink]="'/mise-en-vente'" class="btn btn-primary">Mettre en vente</button>-->
+<!--          </div>-->
         </div>
       </div>
       <div>
@@ -45,7 +45,7 @@
           <div *ngIf="userDetails.achats" class="row">
             <app-carte-article *ngFor="let a of userDetails.achats" [article]="a" class="col-6"></app-carte-article>
           </div>
-          <p *ngIf="!userDetails.ventes">Vous n'avez pas de d'achats.</p>
+          <p *ngIf="!userDetails.achats">Vous n'avez pas de d'achats.</p>
         </div>
       </div>
       <div>

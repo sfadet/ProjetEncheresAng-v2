@@ -1,6 +1,7 @@
 import {Retrait} from "./Retrait";
 import {Categorie} from "./Categorie";
 import {Enchere} from "./Enchere";
+import {Utilisateur} from "./Utilisateur";
 
 export class Article {
   private _noArticle: number;
@@ -12,11 +13,10 @@ export class Article {
   private _prixVente: number;
   private _lieuRetrait: Retrait;
   private _categorie: Categorie;
-  private _noUtilisateurVendeur: number;
-  private _pseudoVendeur: string;
+  private _vendeur: Utilisateur;
   private _encheres: Enchere[] = [];
 
-  constructor(noArticle: number, nomArticle: string, description: string, dateDebutEncheres: Date, dateFinEncheres: Date, miseAPrix: number, prixVente: number, lieuRetrait: Retrait, categorie: Categorie, noUtilisateurVendeur: number, pseudoVendeur: string, encheres: Enchere[]) {
+  constructor(noArticle: number, nomArticle: string, description: string, dateDebutEncheres: Date, dateFinEncheres: Date, miseAPrix: number, prixVente: number, lieuRetrait: Retrait, categorie: Categorie, vendeur: Utilisateur, encheres: Enchere[]) {
     this._noArticle = noArticle;
     this._nomArticle = nomArticle;
     this._description = description;
@@ -26,8 +26,7 @@ export class Article {
     this._prixVente = prixVente;
     this._lieuRetrait = lieuRetrait;
     this._categorie = categorie;
-    this._noUtilisateurVendeur = noUtilisateurVendeur;
-    this._pseudoVendeur = pseudoVendeur;
+    this._vendeur = vendeur;
     this._encheres = encheres;
   }
 
@@ -71,20 +70,12 @@ export class Article {
     this._prixVente = value;
   }
 
-  get noUtilisateurVendeur(): number {
-    return this._noUtilisateurVendeur;
+  get vendeur(): Utilisateur {
+    return this._vendeur;
   }
 
-  set noUtilisateurVendeur(value: number) {
-    this._noUtilisateurVendeur = value;
-  }
-
-  get pseudoVendeur(): string {
-    return this._pseudoVendeur;
-  }
-
-  set pseudoVendeur(value: string) {
-    this._pseudoVendeur = value;
+  set vendeur(value: Utilisateur) {
+    this._vendeur = value;
   }
 
   get categorie(): Categorie {

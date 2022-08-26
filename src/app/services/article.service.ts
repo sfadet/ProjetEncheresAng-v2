@@ -31,7 +31,7 @@ export class ArticleService {
     this.http.post<Article>(this.config.getApiPath()+this.mapping, formValue).subscribe(
       data => {
         if(data){
-          this.route.navigate(['/profil'])
+          this.route.navigate(['/profil']);
         }
       }
     );

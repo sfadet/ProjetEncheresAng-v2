@@ -80,7 +80,8 @@ export class UserService {
     return false;
   }
 
-  public editUser() {
+  public editUser(userForm : {id: number, pseudo: string, nom: string, prenom: string, email: string, telephone: string, rue: string, codePostal: string, ville: string, motDePasse: string, credit: number, administrateur: boolean}) {
+    console.log(userForm);
     return false;
   }
 

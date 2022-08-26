@@ -15,7 +15,6 @@ export class Utilisateur {
   private _administrateur: boolean;
   private _achats: Article[];
   private _encheres: any[];
-  private _ventes: Article[];
 
   constructor(noUtilisateur: number, pseudo: string, nom: string, prenom: string, email: string, telephone: string, rue: string, codePostal: string, ville: string, motDePasse: string, credit: number, administrateur: boolean) {
     this._noUtilisateur = noUtilisateur;
@@ -32,7 +31,6 @@ export class Utilisateur {
     this._administrateur = administrateur;
     this._achats = [];
     this._encheres = [];
-    this._ventes = [];
   }
 
   get noUtilisateur(): number {
@@ -145,13 +143,5 @@ export class Utilisateur {
 
   set encheres(value: any[]) {
     this._encheres = value;
-  }
-
-  get ventes(): any[] {
-    return this._ventes;
-  }
-
-  set ventes(value: any[]) {
-    this._ventes = value;
   }
 }
